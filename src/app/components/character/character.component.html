@@ -1,0 +1,11 @@
+<!-- <p *ngFor="let character of charactersArray; index as i">Name: {{character.name}}</p> -->
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Tipo</th>
+  </tr>
+  <tr *ngFor="let character of charactersArray; index as i">
+    <td>{{character.name}}</td>
+    <td>{{character.species}}</td>
+  </tr>
+</table>
