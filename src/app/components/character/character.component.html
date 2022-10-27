@@ -1,11 +1,23 @@
 <!-- <p *ngFor="let character of charactersArray; index as i">Name: {{character.name}}</p> -->
-<table>
-  <tr>
+<!-- <button (click)="getCharacters()">Default sort</button> -->
+<div class="characters-container">
+  <div class="characters-header">
+    <p (click)="sortByName()">Nombre</p>
+    <p (click)="sortByType()">Tipo</p>
+  </div>
+  <div *ngFor="let character of charactersArray; index as i" class="characters-info">
+    <p>{{character.name}}</p>
+    <p>{{character.species}}</p>
+  </div>
+</div>
+
+<!-- <table class="characters-container" cellspacing="0" cellpadding="0">
+  <tr class="characters-header">
     <th>Nombre</th>
     <th>Tipo</th>
   </tr>
-  <tr *ngFor="let character of charactersArray; index as i">
+  <tr *ngFor="let character of charactersArray; index as i" class="characters-info">
     <td>{{character.name}}</td>
     <td>{{character.species}}</td>
   </tr>
-</table>
+</table> -->
