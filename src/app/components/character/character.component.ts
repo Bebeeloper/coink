@@ -18,16 +18,9 @@ export class CharacterComponent implements OnInit {
   ngOnInit(): void {
     this.charactersService.getAllCharacters()
     .subscribe((data: any) => {
-      console.log(data.results[0]);
       for (let index = 0; index < data.results.length; index++) {
-        console.log(data.results.length);
         this.charactersArray.push(data.results[index]);
       }
-      // this.charactersArray.push(data.results);
-      console.log('Character cero: ' + this.charactersArray[0]);
-
-      // this.products = data;
-      // this.shortDescription();
     });
   }
 
