@@ -57,10 +57,18 @@ export class CharacterComponent implements OnInit {
   }
 
   filters(){
-    const filterArray = this.charactersArray.filter(character => character.name = this.filterName);
-    console.log(filterArray);
+    const filterArray = this.charactersArray.filter(character => character.name.includes(this.filterName)); //after item is a compare statement
 
+    if (filterArray) {
+      this.filterCharactersList = filterArray;
+    }
     // const filterArray = this.charactersArray.includes(this.filterName);
   }
+
+  // returnArrayFiltered(cha) {
+
+  //   const filterArray = this.charactersArray.filter(character => character.name.includes(this.filterName)); //after item is a compare statement
+
+  // }
 
 }
