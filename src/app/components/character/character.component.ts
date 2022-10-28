@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CharactersService } from 'src/app/services/characters.service';
-import { Character } from 'src/app/models/character.model';
+import { Characters } from 'src/app/models/character.model';
+import { Result } from 'src/app/models/character.model';
 
 @Component({
   selector: 'app-character',
@@ -9,7 +10,12 @@ import { Character } from 'src/app/models/character.model';
 })
 export class CharacterComponent implements OnInit {
 
-  charactersArray: any = [];
+  filterName: string = '';
+  filterType: string = '';
+
+  charactersArray: Result[] = [];
+  filterCharactersList: Result[] = [];
+
   charactersFilter: any = [];
   sortName: boolean = false;
   sortType: boolean = false;
@@ -20,15 +26,11 @@ export class CharacterComponent implements OnInit {
 
   ngOnInit(): void {
     this.charactersService.getAllCharacters()
-    .subscribe((data: any) => {
-      for (let index = 0; index < data.results.length; index++) {
-        this.charactersArray.push({
-            name: data.results[index].name,
-            species: data.results[index].species
-          }
-        );
+    .subscribe((data: Characters) => {
+      for (let character of data.results) {
+        this.charactersArray.push(character);
       }
-      console.log('array: ' + this.charactersArray[5].species);
+      console.log(this.charactersArray);
     });
   }
 
@@ -52,6 +54,13 @@ export class CharacterComponent implements OnInit {
       this.charactersArray.sort().reverse();
       this.sortType = !this.sortType;
     }
+  }
+
+  filters(){
+    const filterArray = this.charactersArray.filter(character => character.name = this.filterName);
+    console.log(filterArray);
+
+    // const filterArray = this.charactersArray.includes(this.filterName);
   }
 
 }

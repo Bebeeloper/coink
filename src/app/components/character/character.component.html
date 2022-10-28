@@ -1,5 +1,7 @@
-<!-- <p *ngFor="let character of charactersArray; index as i">Name: {{character.name}}</p> -->
-<!-- <button (click)="getCharacters()">Default sort</button> -->
+<input [(ngModel)]="filterName" type="text">
+<input [(ngModel)]="filterType" type="text">
+<button (click)="filters()">Filter</button>
+<p>{{filterName}}</p>
 <div class="characters-container">
   <div class="characters-header">
     <p (click)="sortByName()">Nombre</p>
@@ -11,13 +13,3 @@
   </div>
 </div>
 
-<!-- <table class="characters-container" cellspacing="0" cellpadding="0">
-  <tr class="characters-header">
-    <th>Nombre</th>
-    <th>Tipo</th>
-  </tr>
-  <tr *ngFor="let character of charactersArray; index as i" class="characters-info">
-    <td>{{character.name}}</td>
-    <td>{{character.species}}</td>
-  </tr>
-</table> -->
