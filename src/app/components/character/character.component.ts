@@ -51,8 +51,8 @@ export class CharacterComponent implements OnInit {
   sortByType(){
     console.log(this.sortType);
     if (this.sortType == false) {
-      this.charactersArray.sort((a: any, b: any) => a.species.localeCompare(b.species));
-      this.filterCharactersList.sort((a: any, b: any) => a.species.localeCompare(b.species));
+      this.charactersArray.sort((a: any, b: any) => a.type.localeCompare(b.type));
+      this.filterCharactersList.sort((a: any, b: any) => a.type.localeCompare(b.type));
       this.sortType = !this.sortType;
     }else{
       this.charactersArray.sort().reverse();

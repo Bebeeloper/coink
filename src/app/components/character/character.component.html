@@ -23,14 +23,14 @@
   <div *ngIf="!filtersBtn; else elseCharacters">
     <div *ngFor="let character of charactersArray; index as i" class="characters-info">
       <p>{{character.name}}</p>
-      <p>{{character.species}}</p>
+      <p>{{character.type}}</p>
     </div>
   </div>
   <ng-template #elseCharacters>
     <div>
       <div *ngFor="let character of filterCharactersList; index as i" class="characters-info-filter">
         <p>{{character.name}}</p>
-        <p>{{character.species}}</p>
+        <p>{{character.type}}</p>
       </div>
     </div>
   </ng-template>

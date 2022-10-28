@@ -15,7 +15,7 @@ export interface Result {
   name:     string;
   // status:   string;
   species:  string;
-  // type:     string;
+  type:     string;
   // gender:   string;
   // origin:   Location;
   // location: Location;
