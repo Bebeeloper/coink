@@ -1,13 +1,26 @@
-<input [(ngModel)]="filterName" type="text">
-<input [(ngModel)]="filterType" type="text">
-<button (click)="filters()">Filter</button>
-<p>{{filterName}}</p>
+<section class="filters-container">
+  <div class="filters-inputs">
+    <div class="name-filter-container">
+      <label for="">Nombre</label>
+      <input [(ngModel)]="filterName" type="text">
+    </div>
+    <div class="type-filter-container">
+      <label for="">Tipo</label>
+      <input [(ngModel)]="filterType" type="text">
+    </div>
+  </div>
+  <div class="filter-btns">
+    <button (click)="cleanFilters()">Limpiar filtros</button>
+    <button (click)="filters()">Buscar</button>
+  </div>
+</section>
+
 <div class="characters-container">
   <div class="characters-header">
     <p (click)="sortByName()">Nombre</p>
     <p (click)="sortByType()">Tipo</p>
   </div>
-  <div *ngIf="filterCharactersList.length <= 0; else elseCharacters">
+  <div *ngIf="!filtersBtn; else elseCharacters">
     <div *ngFor="let character of charactersArray; index as i" class="characters-info">
       <p>{{character.name}}</p>
       <p>{{character.species}}</p>

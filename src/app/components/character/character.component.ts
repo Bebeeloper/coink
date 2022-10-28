@@ -19,6 +19,7 @@ export class CharacterComponent implements OnInit {
   charactersFilter: any = [];
   sortName: boolean = false;
   sortType: boolean = false;
+  filtersBtn: boolean = false;
 
   constructor(
     private charactersService: CharactersService
@@ -61,12 +62,17 @@ export class CharacterComponent implements OnInit {
   }
 
   filters(){
+    this.filtersBtn = true
     const filterArray = this.charactersArray.filter(character => character.name.toLowerCase().includes(this.filterName.toLowerCase())); //after item is a compare statement
 
     if (filterArray) {
       this.filterCharactersList = filterArray;
     }
     // const filterArray = this.charactersArray.includes(this.filterName);
+  }
+
+  cleanFilters(){
+    this.filtersBtn = false;
   }
 
   // returnArrayFiltered(cha) {

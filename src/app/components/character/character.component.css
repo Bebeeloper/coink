@@ -1,4 +1,55 @@
 
+.filters-container{
+  margin-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filters-container .filters-inputs{
+  display: flex;
+}
+
+.filters-container .filters-inputs > div {
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filters-container .filters-inputs > div label{
+  margin-bottom: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+}
+
+.filters-container .filter-btns button:first-child{
+  margin-right: 30px;
+  padding: 10px 30px;
+  border: 1px solid #017564;
+  background: transparent;
+  border-radius: 3px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 1000;
+  color: #004B40;
+  cursor: pointer;
+}
+
+.filters-container .filter-btns button:last-child{
+  padding: 10px 60px;
+  background-color: #004B40;
+  border: 1px solid #004B40;
+  border-radius: 3px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 1000;
+  color: white;
+  cursor: pointer;
+}
+
+.filters-container .filters-inputs > div input{
+  margin-bottom: 30px;
+  outline: 0;
+  border-width: 0 0 1px;
+}
+
 .characters-container {
   display: flex;
   flex-direction: column;
