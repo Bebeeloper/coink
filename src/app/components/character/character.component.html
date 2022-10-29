@@ -19,11 +19,13 @@
   <div class="characters-header">
     <p (click)="sortByName()">Nombre</p>
     <p (click)="sortByType()">Tipo</p>
+    <p (click)="sortBySpecies()"> Especie </p>
   </div>
   <div *ngIf="!filtersBtn; else elseCharacters">
     <div *ngFor="let character of charactersArray; index as i" class="characters-info">
       <p>{{character.name}}</p>
       <p>{{character.type}}</p>
+      <p>{{character.species}}</p>
     </div>
   </div>
   <ng-template #elseCharacters>
@@ -31,6 +33,7 @@
       <div *ngFor="let character of filterCharactersList; index as i" class="characters-info-filter">
         <p>{{character.name}}</p>
         <p>{{character.type}}</p>
+        <p>{{character.species}}</p>
       </div>
     </div>
   </ng-template>

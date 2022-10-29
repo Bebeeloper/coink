@@ -93,7 +93,7 @@
 
 .characters-container .characters-info p{
   padding: 20px;
-  width: 50%;
+  width: 33.33%;
   border-bottom: 1px solid var(--table-border);
   font-family: var(--font-roboto);
   /* font-weight: 500; */
@@ -107,7 +107,7 @@
 
 .characters-container .characters-info-filter p{
   padding: 20px;
-  width: 50%;
+  width: 33.33%;
   border-bottom: 1px solid var(--table-border);
   font-family: var(--font-roboto);
   /* font-weight: 500; */

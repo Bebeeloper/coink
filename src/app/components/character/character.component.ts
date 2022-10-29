@@ -19,6 +19,7 @@ export class CharacterComponent implements OnInit {
   charactersFilter: any = [];
   sortName: boolean = false;
   sortType: boolean = false;
+  sortSpecie: boolean = false;
   filtersBtn: boolean = false;
   thereAreFilters: boolean = true;
 
@@ -37,7 +38,6 @@ export class CharacterComponent implements OnInit {
   }
 
   sortByName(){
-    console.log(this.sortName);
     if (this.sortName == false) {
       this.charactersArray.sort((a: any, b: any) => a.name.localeCompare(b.name));
       this.filterCharactersList.sort((a: any, b: any) => a.name.localeCompare(b.name));
@@ -50,7 +50,6 @@ export class CharacterComponent implements OnInit {
   }
 
   sortByType(){
-    console.log(this.sortType);
     if (this.sortType == false) {
       this.charactersArray.sort((a: any, b: any) => a.type.localeCompare(b.type));
       this.filterCharactersList.sort((a: any, b: any) => a.type.localeCompare(b.type));
@@ -59,6 +58,18 @@ export class CharacterComponent implements OnInit {
       this.charactersArray.sort().reverse();
       this.filterCharactersList.sort().reverse();
       this.sortType = !this.sortType;
+    }
+  }
+
+  sortBySpecies(){
+    if (this.sortSpecie == false) {
+      this.charactersArray.sort((a: any, b: any) => a.species.localeCompare(b.species));
+      this.filterCharactersList.sort((a: any, b: any) => a.species.localeCompare(b.species));
+      this.sortSpecie = !this.sortSpecie;
+    }else{
+      this.charactersArray.sort().reverse();
+      this.filterCharactersList.sort().reverse();
+      this.sortSpecie = !this.sortSpecie;
     }
   }
 
@@ -128,11 +139,5 @@ export class CharacterComponent implements OnInit {
     this.filtersBtn = false;
     this.thereAreFilters = true;
   }
-
-  // returnArrayFiltered(cha) {
-
-  //   const filterArray = this.charactersArray.filter(character => character.name.includes(this.filterName)); //after item is a compare statement
-
-  // }
 
 }
