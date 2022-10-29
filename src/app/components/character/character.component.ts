@@ -32,7 +32,7 @@ export class CharacterComponent implements OnInit {
       for (let character of data.results) {
         this.charactersArray.push(character);
       }
-      console.log(this.charactersArray);
+      // console.log(this.charactersArray);
     });
   }
 
@@ -65,48 +65,60 @@ export class CharacterComponent implements OnInit {
   filters(){
     this.filtersBtn = true;
     this.thereAreFilters = true;
-
-    // Search by name or type validatios
-    if (this.filterName != '' && this.filterType == '') {
-      if (this.filterCharactersList.length == 0) {
-        this.thereAreFilters = false;
-      }else{
-        this.thereAreFilters = true;
-        this.searchByName(this.charactersArray, this.filterName);
-      }
-    }else if (this.filterType && !this.filterName) {
-      if (this.filterCharactersList.length == 0) {
-        this.thereAreFilters = false;
-      }else{
-        this.thereAreFilters = true;
-        this.searchByType(this.charactersArray, this.filterType);
-      }
-    }
+    const filterNameList: Result[] = this.searchByName(this.charactersArray, this.filterName);
+    const filterTypeList: Result[] = this.searchByType(this.charactersArray, this.filterType);
+    const filterNameTypeList: Result[] = this.searchByNameAndType(this.charactersArray, this.filterName, this.filterType);
 
     // Empty search
     if ((this.filterName == '' && this.filterType == '')) {
       this.thereAreFilters = false;
     }
+
+    // Search by name or type validatios
+    if (this.filterName != '' && this.filterType == '') {
+      if (filterNameList.length > 0) {
+        this.thereAreFilters = true;
+        this.filterCharactersList = filterNameList;
+      }else{
+        this.thereAreFilters = false;
+        this.filterCharactersList = [];
+      }
+    }else if (this.filterType && !this.filterName) {
+      if (filterTypeList.length > 0) {
+        this.thereAreFilters = true;
+        this.filterCharactersList = filterTypeList;
+      }else{
+        this.thereAreFilters = false;
+        this.filterCharactersList = [];
+      }
+    }
+
+    // Search by name and type
+    if ((this.filterName != '' && this.filterType != '')) {
+      if (filterNameTypeList.length > 0) {
+        this.thereAreFilters = true;
+        this.filterCharactersList = filterNameTypeList;
+      }else{
+        this.thereAreFilters = false;
+        this.filterCharactersList = [];
+      }
+    }
+
   }
 
   searchByName(characterArray: Result[], input: string){
-    const filterArray = characterArray.filter(character => character.name.toLowerCase().includes(input.toLowerCase())); //after item is a compare statement
-
-    if (filterArray) {
-      this.filterCharactersList =  filterArray;
-    }else{
-      this.filterCharactersList = [];
-    }
+    const filterArray: Result[] = characterArray.filter(character => character.name.toLowerCase().includes(input.toLowerCase())); //after item is a compare statement
+    return filterArray;
   }
 
   searchByType(characterArray: Result[], input: string){
     const filterArray = characterArray.filter(character => character.type.toLowerCase().includes(input.toLowerCase())); //after item is a compare statement
+    return filterArray;
+  }
 
-    if (filterArray) {
-      this.filterCharactersList =  filterArray;
-    }else{
-      this.filterCharactersList = [];
-    }
+  searchByNameAndType(characterArray: Result[], inputName: string, inputType: string){
+    const filterArray = characterArray.filter(character => character.name.toLowerCase().includes(inputName.toLowerCase()) && character.type.toLowerCase().includes(inputType.toLowerCase()));
+    return filterArray;
   }
 
   cleanFilters(){
