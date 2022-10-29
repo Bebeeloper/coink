@@ -1,3 +1,18 @@
+::ng-deep :root{
+  --filters-wrong: #9B9B9B;
+  --default-green: #004B40;
+  --light-green: #017564;
+  --white-color: white;
+  --table-font-color: #555555;
+  --table-border: #65666627;
+  --font-roboto: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.filters-wrong {
+  margin-left: 10px;
+  color: var(--filters-wrong);
+  font-family: var(--font-roboto);
+}
 
 .filters-container{
   margin-bottom: 70px;
@@ -17,30 +32,30 @@
 
 .filters-container .filters-inputs > div label{
   margin-bottom: 10px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-roboto);
   font-weight: 500;
 }
 
 .filters-container .filter-btns button:first-child{
   margin-right: 30px;
   padding: 10px 30px;
-  border: 1px solid #017564;
+  border: 1px solid var(--light-green);
   background: transparent;
   border-radius: 3px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-roboto);
   font-weight: 1000;
-  color: #004B40;
+  color: var(--default-green);
   cursor: pointer;
 }
 
 .filters-container .filter-btns button:last-child{
   padding: 10px 60px;
-  background-color: #004B40;
-  border: 1px solid #004B40;
+  background-color: var(--default-green);
+  border: 1px solid var(--default-green);
   border-radius: 3px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-roboto);
   font-weight: 1000;
-  color: white;
+  color: var(--white-color);
   cursor: pointer;
 }
 
@@ -58,15 +73,15 @@
 
 .characters-container .characters-header {
   display: flex;
-  background-color: #004B40;
+  background-color: var(--default-green);
 }
 
 .characters-container .characters-header p{
   padding: 10px;
   width: 50%;
   text-align: center;
-  color: white;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--white-color);
+  font-family: var(--font-roboto);
   font-weight: 600;
   cursor: pointer;
 }
@@ -79,10 +94,10 @@
 .characters-container .characters-info p{
   padding: 20px;
   width: 50%;
-  border-bottom: 1px solid #65666627;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-bottom: 1px solid var(--table-border);
+  font-family: var(--font-roboto);
   /* font-weight: 500; */
-  color: #555555;
+  color: var(--table-font-color);
 }
 
 .characters-container .characters-info-filter {
@@ -93,8 +108,8 @@
 .characters-container .characters-info-filter p{
   padding: 20px;
   width: 50%;
-  border-bottom: 1px solid #65666627;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-bottom: 1px solid var(--table-border);
+  font-family: var(--font-roboto);
   /* font-weight: 500; */
-  color: #555555;
+  color: var(--table-font-color);
 }

@@ -15,7 +15,7 @@
   </div>
 </section>
 
-<div class="characters-container">
+<div *ngIf="thereAreFilters; else elseFilters" class="characters-container">
   <div class="characters-header">
     <p (click)="sortByName()">Nombre</p>
     <p (click)="sortByType()">Tipo</p>
@@ -34,6 +34,8 @@
       </div>
     </div>
   </ng-template>
-
 </div>
+<ng-template #elseFilters>
+  <h2 class="filters-wrong">No encontramos personajes</h2>
+</ng-template>
 

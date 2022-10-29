@@ -20,6 +20,7 @@ export class CharacterComponent implements OnInit {
   sortName: boolean = false;
   sortType: boolean = false;
   filtersBtn: boolean = false;
+  thereAreFilters: boolean = true;
 
   constructor(
     private charactersService: CharactersService
@@ -62,17 +63,58 @@ export class CharacterComponent implements OnInit {
   }
 
   filters(){
-    this.filtersBtn = true
-    const filterArray = this.charactersArray.filter(character => character.name.toLowerCase().includes(this.filterName.toLowerCase())); //after item is a compare statement
+    this.filtersBtn = true;
+    this.thereAreFilters = true;
+
+    // Search by name or type validatios
+    if (this.filterName != '' && this.filterType == '') {
+      if (this.filterCharactersList.length == 0) {
+        this.thereAreFilters = false;
+      }else{
+        this.thereAreFilters = true;
+        this.searchByName(this.charactersArray, this.filterName);
+      }
+    }else if (this.filterType && !this.filterName) {
+      if (this.filterCharactersList.length == 0) {
+        this.thereAreFilters = false;
+      }else{
+        this.thereAreFilters = true;
+        this.searchByType(this.charactersArray, this.filterType);
+      }
+    }
+
+    // Empty search
+    if ((this.filterName == '' && this.filterType == '')) {
+      this.thereAreFilters = false;
+    }
+  }
+
+  searchByName(characterArray: Result[], input: string){
+    const filterArray = characterArray.filter(character => character.name.toLowerCase().includes(input.toLowerCase())); //after item is a compare statement
 
     if (filterArray) {
-      this.filterCharactersList = filterArray;
+      this.filterCharactersList =  filterArray;
+    }else{
+      this.filterCharactersList = [];
     }
-    // const filterArray = this.charactersArray.includes(this.filterName);
+  }
+
+  searchByType(characterArray: Result[], input: string){
+    const filterArray = characterArray.filter(character => character.type.toLowerCase().includes(input.toLowerCase())); //after item is a compare statement
+
+    if (filterArray) {
+      this.filterCharactersList =  filterArray;
+    }else{
+      this.filterCharactersList = [];
+    }
   }
 
   cleanFilters(){
+    this.filterName = '';
+    this.filterType = '';
+    this.filterCharactersList = [];
     this.filtersBtn = false;
+    this.thereAreFilters = true;
   }
 
   // returnArrayFiltered(cha) {
