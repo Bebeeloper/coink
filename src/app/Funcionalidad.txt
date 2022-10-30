@@ -1,0 +1,24 @@
+nmp --v: 8.19.2
+node -v: v16.18.0
+
+Para poder correr la app, se necesita importar en el
+archivo app.module.ts lo siguiente
+
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
+  ],
+
+La app tiene los siguientes componentes
+character: donde se encuentra toda la funcionalidad de la tabla
+main-table: vemos el diseño de la vista 3
+
+Tambien tengo los models para formatear el tipo de datos que llega desde el endpoint
+y para controlar el tipo de datos que entran a la lista de characters
+(interface)
+
