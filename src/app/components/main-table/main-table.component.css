@@ -1,3 +1,144 @@
+::ng-deep :root{
+    --filters-wrong: #9B9B9B;
+    --default-green: #004B40;
+    --lemon-green: #1EEB00;
+    --light-green: #017564;
+    --white-color: white;
+    --table-font-color: #555555;
+    --table-border: #65666627;
+    --aside-profile: #D1FBD9;
+    --font-roboto: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
 header {
-    background-color: #004B40;
+    width: 100%;
+    height: 63px;
+    display: flex;
+    background-color: var(--default-green);
+}
+
+header .logo-container {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo-container p {
+    color: var(--lemon-green);
+    font-family: var(--font-roboto);
+    font-weight: 700;
+}
+
+header .hamburguer-menu {
+    width: 10%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+header .hamburguer-menu div {
+    width: 30px;
+    height: 2px;
+    background-color: var(--white-color);
+    border-radius: 20px;
+}
+
+header .backoffice-container {
+    width: 60%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .backoffice-container h1 {
+    color: var(--white-color);
+    font-size: 24px;
+    font-weight: 400;
+}
+
+header .profile-container {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+header .profile-container img {
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Main section */
+main {
+    display: flex;
+}
+
+main aside {
+    width: 20%;
+    /* height: 20%; */
+    display: flex;
+    flex-direction: column;
+}
+
+main aside figure{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #9b9b9b23;
+}
+
+main aside figure div{
+    width: 50%;
+    height: 50%;
+    background-color: var(--aside-profile);
+    border-radius: 50%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+main aside figure p{
+    margin-top: 10px;
+}
+
+main aside ul {
+    margin-top: 40px;
+    /* padding: 20px; */
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+main aside ul li{
+    padding: 20px 20px 20px 50px;
+}
+
+main aside ul li:first-child{
+    padding: 20px 20px 20px 50px;
+    background-color: var(--default-green);
+    color: var(--white-color);
+}
+
+main section{
+    padding: 30px;
+    width: 80%;
+}
+main section p {
+    margin: 20px 0px;
+}
+main section p span{
+    color: var(--default-green);
+    font-weight: 500;
 }

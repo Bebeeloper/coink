@@ -15,6 +15,7 @@
 }
 
 .filters-container{
+  margin-top: 20px;
   margin-bottom: 70px;
   display: flex;
   flex-direction: column;
@@ -116,7 +117,7 @@
 
 /* Pagination */
 .pagination-container {
-  padding: 0 40px;
+  padding: 20px 40px;
   display: flex;
   justify-content: flex-end;
 }
