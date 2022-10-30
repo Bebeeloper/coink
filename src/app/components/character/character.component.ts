@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CharactersService } from 'src/app/services/characters.service';
 import { Characters } from 'src/app/models/character.model';
 import { Result } from 'src/app/models/character.model';
+import { characterPagination } from 'src/app/models/character.model';
 
 @Component({
   selector: 'app-character',
@@ -12,9 +13,13 @@ export class CharacterComponent implements OnInit {
 
   filterName: string = '';
   filterType: string = '';
+  pageNumber: number = 1;
+  itemsPerPage: number = 5;
 
   charactersArray: Result[] = [];
+  charactersPage: characterPagination[] = [];
   filterCharactersList: Result[] = [];
+  pages = [1,2,3,4];
 
   charactersFilter: any = [];
   sortName: boolean = false;
@@ -31,9 +36,20 @@ export class CharacterComponent implements OnInit {
     this.charactersService.getAllCharacters()
     .subscribe((data: Characters) => {
       for (let character of data.results) {
+        const index: number = data.results.indexOf(character) + 1;
+        console.log(index);
+        
         this.charactersArray.push(character);
+        if (index >= this.pageNumber  && index <= this.itemsPerPage) {
+          this.charactersPage.push({
+            name: character.name,
+            species: character.species,
+            type: character.type,
+            index: data.results.indexOf(character) + 1
+          });
+        }
       }
-      // console.log(this.charactersArray);
+      console.log(this.charactersPage);
     });
   }
 
@@ -138,6 +154,27 @@ export class CharacterComponent implements OnInit {
     this.filterCharactersList = [];
     this.filtersBtn = false;
     this.thereAreFilters = true;
+  }
+
+  pagination(position: number){
+    this.pageNumber = position + 1;
+    const newfirstPosition = this.charactersPage[this.charactersPage.length - 1].index + 1;
+    const newlastPosition = this.charactersPage[this.charactersPage.length - 1].index + 5;
+    
+    this.charactersPage = [];
+
+    for (let character of this.charactersArray) {
+      const index: number = this.charactersArray.indexOf(character) + 1;
+      if (index >= newfirstPosition && index <= newlastPosition) {
+        this.charactersPage.push({
+          name: character.name,
+          species: character.species,
+          type: character.type,
+          index: this.charactersArray.indexOf(character) + 1
+        });
+      }
+    }
+    
   }
 
 }

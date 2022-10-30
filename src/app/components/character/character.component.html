@@ -22,7 +22,7 @@
     <p (click)="sortBySpecies()"> Especie </p>
   </div>
   <div *ngIf="!filtersBtn; else elseCharacters">
-    <div *ngFor="let character of charactersArray; index as i" class="characters-info">
+    <div *ngFor="let character of charactersPage; index as i" class="characters-info">
       <p>{{character.name}}</p>
       <p>{{character.type}}</p>
       <p>{{character.species}}</p>
@@ -41,4 +41,7 @@
 <ng-template #elseFilters>
   <h2 class="filters-wrong">No encontramos personajes</h2>
 </ng-template>
+<ul class="pagination-container">
+  <button *ngFor="let page of pages; index as i" (click)="pagination(i)">{{page}}</button>
+</ul>
 

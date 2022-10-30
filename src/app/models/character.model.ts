@@ -25,6 +25,13 @@ export interface Result {
   // created:  Date;
 }
 
+export interface characterPagination{
+  name: string,
+  species: string,
+  type: string,
+  index: number
+}
+
 // export interface Character {
 //   name: string,
 //   species: string
